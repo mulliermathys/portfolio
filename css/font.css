@@ -1,0 +1,100 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Amaranth:ital,wght@0,400;0,700;1,400;1,700&family=DM+Serif+Text:ital@0;1&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+
+@font-face {
+  font-family: 'Molitor';
+  src: url('../font/molitor/Molitortrial-DisplayBoldItalic.otf') format('opentype');
+  font-weight: bold;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: 'Molitor';
+  src: url('../font/molitor/Molitortrial-DisplayLight.otf') format('opentype');
+  font-weight: 300;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Molitor';
+  src: url('../font/molitor/Molitortrial-TextItalic.otf') format('opentype');
+  font-weight: normal;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: 'Molitor';
+  src: url('../font/molitor/MolitorVariableItalic-Trial.ttf') format('truetype');
+  font-weight: normal;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: 'Molitor';
+  src: url('../font/molitor/Molitortrial-DisplayBold.otf') format('opentype');
+  font-weight: bold;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Molitor';
+  src: url('./font/molitor/Molitortrial-DisplayRegular.otf') format('opentype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Molitor';
+  src: url('../font/molitor/Molitortrial-DisplayItalic.otf') format('opentype');
+  font-weight: normal;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: 'Molitor';
+  src: url('../font/molitor/Molitortrial-DisplayLightItalic.otf') format('opentype');
+  font-weight: 300;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: 'Molitor';
+  src: url('../font/molitor/Molitortrial-TextBoldItalic.otf') format('opentype');
+  font-weight: bold;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: 'Molitor';
+  src: url('../font/molitor/Molitortrial-TextBold.otf') format('opentype');
+  font-weight: bold;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Molitor';
+  src: url('../font/molitor/Molitortrial-TextLightItalic.otf') format('opentype');
+  font-weight: 300;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: 'Molitor';
+  src: url('../font/molitor/Molitortrial-TextLight.otf') format('opentype');
+  font-weight: 300;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Molitor';
+  src: url('../font/molitor/Molitortrial-TextRegular.otf') format('opentype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Molitor';
+  src: url('../font/molitor/MolitorVariable-Trial.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
