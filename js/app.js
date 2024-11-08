@@ -7,36 +7,24 @@ document.querySelector('#scrollButton').addEventListener('click', function() {
 /**
  * Gestion de la barre de navigation
  */
-
 const navBar = document.querySelector('#nav');
-const title = document.querySelector('#title');
+const logo = document.querySelector('#logo');
 const navElements = document.querySelector('#navElements');
 const contact = document.querySelector('#contact');
 
 function navReduction() {
   if (window.innerWidth >= 1000) navBar.classList.add('reduce');
-  title.classList.add('hidden');
+  logo.classList.add('hidden');
   contact.classList.add('hidden');
   navElements.style.width = '100%';
 }
 
 function navIncrement() {
   navBar.classList.remove('reduce');
-  title.classList.remove('hidden');
+  logo.classList.remove('hidden');
   contact.classList.remove('hidden');
   navElements.style.width = '70%';
 }
-
-// Gestion de la barre de navigation selon scroll
-window.addEventListener('scroll', function() {
-  const scrollPosition = window.scrollY;
-  const threshold = document.querySelector('main').getBoundingClientRect().top + scrollPosition - 300
-  if (scrollPosition > threshold) {
-    navReduction();
-  } else if (window.innerWidth > 1150) {
-    navIncrement();
-  }
-});
 
 // Gestion de la width de la barre de la navigation
 function windowSizeNav() {
@@ -82,6 +70,7 @@ const sectionObserver = new IntersectionObserver((entries) => {
       const children = Array.from(entry.target.parentNode.children); // Convertit la NodeList en tableau
       const buttons = Array.from(document.querySelectorAll('#navElements .content'));
       activeElement(buttons[children.indexOf(entry.target)]);
+      navReduction();
     }
   });
 }, {
@@ -94,6 +83,7 @@ const headerObserver = new IntersectionObserver((entries) => {
       document.querySelectorAll('#navElements .content').forEach((element) => {
         element.classList.remove('active');
       });
+      navIncrement();
     }
   });
 }, {
