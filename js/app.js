@@ -7,12 +7,14 @@ const contact = document.querySelector('#contact');
 
 
 function block() {
-  document.querySelector("html").style.display = "none";
-  navBar.style.display = "none";
-  alert("Mon portfolio n'est pas encore finalisé. Découvrez-le bientôt :)");
+  navBar.style.display = 'none';
+  document.querySelector("main").style.display = "none";
+  document.querySelector("header").style.display = "none";
+
+  Swal.fire({title: 'À bientôt :)', text: 'Le site n\'est pas encore terminé. Découvrez-le bientôt !', icon: 'error', confirmButtonText: 'Compris'});
 }
 
-block()
+block();
 
 /**
  * Fonctions
