@@ -1,37 +1,60 @@
 
-// Scroll du header au main
-document.querySelector('#scrollButton').addEventListener('click', function() {
-  document.querySelector('main').scrollIntoView();
-});
-
-/**
- * Gestion de la barre de navigation
- */
 const navBar = document.querySelector('#nav');
+const navBarElements = document.querySelectorAll('#navElements .content');
 const logo = document.querySelector('#logo');
 const navElements = document.querySelector('#navElements');
 const contact = document.querySelector('#contact');
 
+
+function block() {
+  document.querySelector("html").style.display = "none";
+  navBar.style.display = "none";
+  alert("Mon portfolio n'est pas encore finalisé. Découvrez-le bientôt :)");
+}
+
+block()
+
+/**
+ * Fonctions
+ */
+
 function navReduction() {
   if (window.innerWidth >= 1000) navBar.classList.add('reduce');
+  else navBar.classList.remove('reduce');
   logo.classList.add('hidden');
   contact.classList.add('hidden');
   navElements.style.width = '100%';
 }
 
 function navIncrement() {
-  navBar.classList.remove('reduce');
-  logo.classList.remove('hidden');
-  contact.classList.remove('hidden');
-  navElements.style.width = '70%';
+  if (window.innerWidth >= 1000) {
+    navBar.classList.remove('reduce');
+    logo.classList.remove('hidden');
+    contact.classList.remove('hidden');
+    navElements.style.width = '70%';
+  }
 }
 
-// Gestion de la width de la barre de la navigation
 function windowSizeNav() {
   if (window.innerWidth <= 1150) {
     navReduction();
   } else navIncrement();
 }
+
+function activeElement(element) {
+  navBarElements.forEach((elementBis) => {
+    if (elementBis.classList.contains('active')) elementBis.classList.remove('active');
+  })
+  element.classList.add('active');
+}
+
+/**
+ * Event listeners
+ */
+
+document.querySelector('#scrollButton').addEventListener('click', function() {
+  document.querySelector('main').scrollIntoView();
+});
 
 window.addEventListener('resize', function() {
   windowSizeNav();
@@ -41,16 +64,6 @@ window.addEventListener('load', function() {
   windowSizeNav();
 })
 
-
-// Gestion des boutons de la barre de navigation
-function activeElement(element) {
-    navBarElements.forEach((elementBis) => {
-      if (elementBis.classList.contains('active')) elementBis.classList.remove('active');
-    })
-    element.classList.add('active');
-}
-
-const navBarElements = document.querySelectorAll('#navElements .content');
 navBarElements.forEach((element) => {
   element.addEventListener('click', function(event) {activeElement(element)});
 })
@@ -59,11 +72,18 @@ navBarElements.forEach((element) => {
   element.addEventListener('click', function(event) {
     const children = Array.from(document.querySelectorAll('section'));
     const buttons = Array.from(element.parentNode.children);
-    children[buttons.indexOf(element)].scrollIntoView();
+    const section = children[buttons.indexOf(element)];
+    let sectionPosY = section.getBoundingClientRect().top;
+    sectionPosY -= navBar.clientHeight;
+    sectionPosY -= parseInt(window.getComputedStyle(navBar).top) * 2;
+    window.scrollBy({top: sectionPosY, behavior: "smooth"});
   })
 })
 
-// Gestion de la navigation active selon la position
+/**
+ * Observers
+ * */
+
 const sectionObserver = new IntersectionObserver((entries) => {
   entries.forEach(entry => {
     if (entry.intersectionRatio >= 0.5) {
@@ -74,7 +94,7 @@ const sectionObserver = new IntersectionObserver((entries) => {
     }
   });
 }, {
-  threshold: [0.5] // Déclenche lorsque 50% de l'élément est visible
+  threshold: [0.5]
 });
 
 const headerObserver = new IntersectionObserver((entries) => {

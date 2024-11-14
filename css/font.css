@@ -1,6 +1,10 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Amaranth:ital,wght@0,400;0,700;1,400;1,700&family=DM+Serif+Text:ital@0;1&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
 
+/**
+ * Molitor
+ */
+
 @font-face {
   font-family: 'Molitor';
   src: url('../font/molitor/Molitortrial-DisplayBoldItalic.otf') format('opentype');
@@ -38,7 +42,7 @@
 
 @font-face {
   font-family: 'Molitor';
-  src: url('./font/molitor/Molitortrial-DisplayRegular.otf') format('opentype');
+  src: url('../font/molitor/Molitortrial-DisplayRegular.otf') format('opentype');
   font-weight: normal;
   font-style: normal;
 }
@@ -98,3 +102,176 @@
   font-weight: normal;
   font-style: normal;
 }
+
+/**
+ * NameSans
+ */
+
+@font-face {
+  font-family: 'ATNameSansText';
+  src: url('../font/nameSans/ATNameSansTextTrial-Black.otf') format('opentype');
+  font-weight: 900;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'ATNameSansText';
+  src: url('../font/nameSans/ATNameSansTextTrial-BlackItalic.otf') format('opentype');
+  font-weight: 900;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: 'ATNameSansText';
+  src: url('../font/nameSans/ATNameSansTextTrial-Bold.otf') format('opentype');
+  font-weight: 700;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'ATNameSansText';
+  src: url('../font/nameSans/ATNameSansTextTrial-BoldItalic.otf') format('opentype');
+  font-weight: 700;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: 'ATNameSansText';
+  src: url('../font/nameSans/ATNameSansTextTrial-ExtraBold.otf') format('opentype');
+  font-weight: 800;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'ATNameSansText';
+  src: url('../font/nameSans/ATNameSansTextTrial-ExtraBoldItalic.otf') format('opentype');
+  font-weight: 800;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: 'ATNameSansText';
+  src: url('../font/nameSans/ATNameSansTextTrial-ExtraLight.otf') format('opentype');
+  font-weight: 200;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'ATNameSansText';
+  src: url('../font/nameSans/ATNameSansTextTrial-ExtraLightItalic.otf') format('opentype');
+  font-weight: 200;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: 'ATNameSansText';
+  src: url('../font/nameSans/ATNameSansTextTrial-ExtraThin.otf') format('opentype');
+  font-weight: 100;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'ATNameSansText';
+  src: url('../font/nameSans/ATNameSansTextTrial-ExtraThinItalic.otf') format('opentype');
+  font-weight: 100;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: 'ATNameSansText';
+  src: url('../font/nameSans/ATNameSansTextTrial-Hairline.otf') format('opentype');
+  font-weight: 50;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'ATNameSansText';
+  src: url('../font/nameSans/ATNameSansTextTrial-HairlineItalic.otf') format('opentype');
+  font-weight: 50;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: 'ATNameSansText';
+  src: url('../font/nameSans/ATNameSansTextTrial-Italic.otf') format('opentype');
+  font-weight: 400;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: 'ATNameSansText';
+  src: url('../font/nameSans/ATNameSansTextTrial-Light.otf') format('opentype');
+  font-weight: 300;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'ATNameSansText';
+  src: url('../font/nameSans/ATNameSansTextTrial-LightItalic.otf') format('opentype');
+  font-weight: 300;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: 'ATNameSansText';
+  src: url('../font/nameSans/ATNameSansTextTrial-Medium.otf') format('opentype');
+  font-weight: 500;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'ATNameSansText';
+  src: url('../font/nameSans/ATNameSansTextTrial-MediumItalic.otf') format('opentype');
+  font-weight: 500;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: 'ATNameSansText';
+  src: url('../font/nameSans/ATNameSansTextTrial-Regular.otf') format('opentype');
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'ATNameSansText';
+  src: url('../font/nameSans/ATNameSansTextTrial-SemiBold.otf') format('opentype');
+  font-weight: 600;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'ATNameSansText';
+  src: url('../font/nameSans/ATNameSansTextTrial-SemiBoldItalic.otf') format('opentype');
+  font-weight: 600;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: 'ATNameSansText';
+  src: url('../font/nameSans/ATNameSansTextTrial-Thin.otf') format('opentype');
+  font-weight: 100;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'ATNameSansText';
+  src: url('../font/nameSans/ATNameSansTextTrial-ThinItalic.otf') format('opentype');
+  font-weight: 100;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: 'ATNameSansText';
+  src: url('../font/nameSans/ATNameSansTextTrial-Ultra.otf') format('opentype');
+  font-weight: 950;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'ATNameSansText';
+  src: url('../font/nameSans/ATNameSansTextTrial-UltraItalic.otf') format('opentype');
+  font-weight: 950;
+  font-style: italic;
+}
+
