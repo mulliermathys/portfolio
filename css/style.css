@@ -12,7 +12,8 @@ body {
   --nav-margin: 2vh;
   --nav-height: 7vh;
   --nav-primary-color: #464953;
-  --nav-second-color: #F96E46;
+  --primary-color: #F96E46;
+  --second-color: #95B2B8;
 }
 
 main {
@@ -22,4 +23,11 @@ main {
 
 section:not(#presentation) {
   height: 100vh;
+}
+
+#section-title-decoration {
+  width: 20%;
+  height: 0.6vh;
+  background-color: var(--primary-color);
+  margin: 2.5vh auto 6vw auto;
 }

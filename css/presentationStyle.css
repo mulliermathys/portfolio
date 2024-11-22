@@ -1,57 +1,118 @@
 
 #presentation {
-  --section-height: 60vh;
-
   width: 100%;
-  height: var(--section-height);
-  display: flex;
-  justify-content: space-between;
-  margin-top: 10vh;
-}
-
-#presentation div {
-  width: calc(100% - var(--section-height));
-  padding: 0 3vw;
-  min-width: calc(50% - 6vw);
 }
 
 #presentation span {
-  font-family: "Molitor", sans-serif;
-  font-style: italic;
-  text-transform: uppercase;
-  font-size: clamp(0.8rem, 0.8rem + 4vw, 2rem);
-  font-weight: bold;
-  color: var(--nav-second-color);
-  margin: 1vh 0 3vh 0;
   display: block;
+  margin-top: 5vh;
+  text-transform: uppercase;
+  font-family: "Molitor", sans-serif;
+  font-size: 3vw;
+  font-weight: bold;
+  color: var(--primary-color);
+  text-align: center;
 }
 
-#presentation p {
+#presentation .text-container {
+  --right-part-size: 40vw;
+  width: 100%;
+  display: flex;
+}
+
+#presentation .text-container #left-part {
+  --padding-side-value: 5vw;
+  width: calc(100% - var(--right-part-size) - var(--padding-side-value));
+  padding: 1.6vh var(--padding-side-value);
   text-align: justify;
   font-family: 'ATNameSansText', sans-serif;
-  font-size: clamp(0.6rem, 0.6rem + 4vw, 1.2rem);
+  font-size: 1.3vw;
+  line-height: 1.4;
 }
 
-#presentation img {
+#presentation .text-container #left-part #trad-button-zone {
+  margin: 3vw auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#presentation .text-container #left-part #trad-button-zone div {
+  --button-size: 5vw;
+  width: var(--button-size);
+  height: var(--button-size);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: var(--second-color) 5px solid;
+  border-radius: 999px;
+  color: var(--second-color);
+  font-weight: bold;
+  user-select: none;
+}
+
+#presentation .text-container #left-part #trad-button-zone div:nth-child(2) {
+  margin-left: 3vw;
+}
+
+#presentation .text-container #left-part #trad-button-zone div.active {
+  animation: activeTranslateButton 0.7s forwards ease-out;
+}
+
+@keyframes activeTranslateButton {
+  from {
+    background-color: white;
+    color: var(--second-color);
+  }
+  to {
+    background-color: var(--second-color);
+    color: white;
+  }
+}
+
+#presentation .text-container #right-part {
+  width: var(--right-part-size);
+  height: var(--right-part-size);
+}
+
+#presentation .text-container #right-part img {
+  width: 100%;
   height: 100%;
-  max-width: 50%;
   object-fit: cover;
 }
 
-@media (max-width: 800px) {
-  #presentation {
+/**
+ *  MEDIA QUERIES
+ */
+
+@media screen and (max-width: 1200px) {
+  #presentation .text-container #left-part {
+    font-size: 1.5vw;
+  }
+}
+
+@media screen and (max-width: 900px) {
+  #presentation span {
+    font-size: 5vw;
+  }
+
+  #presentation .text-container {
     flex-direction: column;
-    align-items: center;
-    justify-content: center;
   }
 
-  #presentation div {
-    width: calc(100% - 6vw);
-    margin-bottom: 3vh;
+  #presentation .text-container #left-part {
+    font-size: 2.3vw;
+    width: calc(100% - 2 * var(--padding-side-value));
   }
 
-  #presentation img {
-    width: 50vw;
-    height: 50vw;
+  #presentation .text-container #right-part {
+    width: 100vw;
+    height: 100vw;
+  }
+}
+
+@media screen and (max-width: 900px) {
+  #presentation .text-container #left-part #trad-button-zone div {
+    border: var(--second-color) 3px solid;
   }
 }
