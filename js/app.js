@@ -5,36 +5,35 @@ const logo = document.querySelector('#logo');
 const navElements = document.querySelector('#navElements');
 const contact = document.querySelector('#contact');
 const tradButtons = document.querySelectorAll('#presentation .text-container #left-part #trad-button-zone div');
-
-let headerVisible = true;
+const navButtons = Array.from(document.querySelectorAll('#navElements .content'));
+let navReduced = true;
 
 /**
  * Fonctions
  */
 
-function navReduction() {
-  if (window.innerWidth >= 1000) navBar.classList.add('reduce');
-  else navBar.classList.remove('reduce');
-  logo.classList.add('hidden');
-  contact.classList.add('hidden');
-  navElements.style.width = '100%';
+function navReduction(full) {
+  logo.style.display = "none";
+  contact.style.display = "none";
+  if (full) navBar.classList.add('reduce');
+  navElements.style.width = "100%";
 }
 
 function navIncrement() {
-  if (window.innerWidth >= 1000) {
-    navBar.classList.remove('reduce');
-    logo.classList.remove('hidden');
-    contact.classList.remove('hidden');
-    navElements.style.width = '70%';
-    headerVisible = true;
-    console.log("oui")
-  }
+  logo.style.display = "flex";
+  contact.style.display = "flex";
+  navBar.classList.remove('reduce');
+  navElements.style.width = "70%";
 }
 
 function windowSizeNav() {
-  if (window.innerWidth <= 1150) {
-    navReduction();
-  } else if (headerVisible) navIncrement();
+  if (!navReduced) {
+    if (window.innerWidth > 1150) navIncrement();
+    else navReduction(false);
+  } else {
+    if (window.innerWidth < 1150) navBar.classList.remove('reduce');
+    else navBar.classList.add('reduce');
+  }
 }
 
 function activeElement(allElements, element) {
@@ -44,9 +43,38 @@ function activeElement(allElements, element) {
   element.classList.add('active');
 }
 
-function switchLanguage(idxLang) {
-  const langVersions = ["Étudiant en BUT Informatique à l'IUT de Lille, je suis spécialisé dans la création d'applications, de leur conception à leur validation. Mon ambition ? Devenir développeur full stack pour concevoir et réaliser des solutions innovantes, ergonomiques et performantes.\n\n Curieux et motivé, je m'intéresse à toutes les facettes du code : des interfaces utilisateur intuitives et attractives aux architectures back-end robustes et fiables. Grâce à ma formation, j'ai acquis de l'expérience pour être efficace à chaque étape du développement d'une application, depuis l'analyse des besoins du client jusqu'à sa livraison pour la rendre entièrement fonctionelle.",
-                "As a student in the Computer Science bachelor's program (BUT Informatique) at IUT de Lille, I specialize in application development, from design to validation. My ambition? To become a full-stack developer, crafting innovative, user-friendly, and high-performance solutions.\n\n Curious and driven, I am passionate about all aspects of coding: from creating intuitive and appealing user interfaces to building robust and reliable back-end architectures. Through my studies, I have gained valuable experience to excel at every stage of application development, from analyzing client needs to delivering fully functional solutions."];
+function disableElements(allElements) {
+  allElements.forEach((element) => {
+    element.classList.remove('active');
+  })
+}
+
+async function readFile() {
+  const response = await fetch('./assets/lang.csv');
+  const text = await response.text();
+  return text
+    .split("\n")
+    .filter(row => row.trim() !== "") // Ignore les lignes vides
+    .map(row => row.split(";"));
+}
+
+async function getLangVersions() {
+  const fileContent = await readFile();
+  let langVersions = [];
+  for (let idxTab = 0; idxTab < fileContent.length; idxTab++) {
+    if (fileContent[idxTab].length > 1) { // Vérifie que la deuxième colonne existe
+      langVersions.push(fileContent[idxTab][1].replace(/\\n/g, "\n"));
+    }
+  }
+  return langVersions;
+}
+
+async function switchLanguage(idxLang) {
+  const langVersions = await getLangVersions();
+  if (idxLang < 0 || idxLang >= langVersions.length) {
+    console.error("Index hors limites !");
+    return;
+  }
   document.querySelector("#left-part p").innerHTML = langVersions[idxLang].replace(/\n/g, "<br>");
 }
 
@@ -58,14 +86,13 @@ document.querySelector('#scrollButton').addEventListener('click', function() {
   document.querySelector('main').scrollIntoView();
 });
 
-window.addEventListener('resize', function() {
-   if (headerVisible) navIncrement();
-   else navReduction();
-})
-
 window.addEventListener('load', function() {
   windowSizeNav();
   switchLanguage(0);
+})
+
+window.addEventListener('resize', function() {
+  windowSizeNav();
 })
 
 navBarElements.forEach((element) => {
@@ -86,8 +113,8 @@ navBarElements.forEach((element) => {
 
 tradButtons.forEach((element) => {
   element.addEventListener('click', function(event) {
-    activeElement(tradButtons, element);
     let buttonsList =  Array.from(tradButtons);
+    activeElement(tradButtons, element);
     switchLanguage(buttonsList.indexOf(element));
   });
 })
@@ -96,41 +123,41 @@ tradButtons.forEach((element) => {
  * Observers
  * */
 
-const sectionObserver = new IntersectionObserver((entries) => {
-  entries.forEach(entry => {
-    if (entry.intersectionRatio >= 0.5) {
-      const children = Array.from(entry.target.parentNode.children); // Convertit la NodeList en tableau
-      const buttons = Array.from(document.querySelectorAll('#navElements .content'));
-      activeElement(buttons[children.indexOf(entry.target)]);
-      headerVisible = false;
-      windowSizeNav();
-    }
-  });
-}, {
-  threshold: [0.5]
-});
+const sectionObserver = new IntersectionObserver ((entries) => {
+    entries.forEach((entry) => {
+      if (entry.intersectionRatio >= 0.5) {
+        if (window.innerWidth > 1150) navReduction(true);
+        else navReduction(false);
+        const children = Array.from(entry.target.parentNode.children); // Convertit la NodeList en tableau
+        activeElement(navButtons, navButtons[children.indexOf(entry.target)]);
+        navReduced = true;
+      }
+    });
+  },
+  {
+    threshold: [0.5], // Déclenche quand la visibilité atteint 50%
+  }
+);
 
-const headerObserver = new IntersectionObserver((entries) => {
-  entries.forEach(entry => {
-    if (entry.target === document.querySelector('header') && entry.intersectionRatio >= 0.5) {
-      document.querySelectorAll('#navElements .content').forEach((element) => {
-        element.classList.remove('active');
-      });
-      headerVisible = true;
-      navIncrement();
-    } else {
-      navReduction();
-    }
-  });
-}, {
-  threshold: [0.5] // Déclenche lorsque 50% de l'élément est visible
-});
-
-document.querySelectorAll("section").forEach((element) => {
+document.querySelectorAll('main section').forEach((element) => {
   sectionObserver.observe(element);
-})
+});
 
-headerObserver.observe(document.querySelector('header'));
+const headerObserver = new IntersectionObserver ((entries) => {
+    entries.forEach((entry) => {
+      if (entry.intersectionRatio >= 0.5) {
+        navReduced = false;
+        windowSizeNav();
+        disableElements(navButtons);
+      }
+    });
+  },
+  {
+    threshold: [0.5], // Déclenche quand la visibilité atteint 50%
+  }
+);
+
+headerObserver.observe(document.querySelector("header"));
 
 function block() {
   navBar.style.display = 'none';
