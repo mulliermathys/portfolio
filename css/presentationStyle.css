@@ -1,21 +1,19 @@
 
 #presentation {
+  margin-top: 1vh;
   width: 100%;
 }
 
 #presentation span {
   display: block;
-  margin-top: 5vh;
-  text-transform: uppercase;
-  font-family: "Molitor", sans-serif;
+  margin-bottom: 3vh;
   font-size: 3vw;
-  font-weight: bold;
   color: var(--primary-color);
   text-align: center;
 }
 
 #presentation .text-container {
-  --right-part-size: 40vw;
+  --right-part-size: 45vw;
   width: 100%;
   display: flex;
 }
@@ -31,7 +29,7 @@
 }
 
 #presentation .text-container #left-part #trad-button-zone {
-  margin: 3vw auto;
+  margin-top: 3vw;
   display: flex;
   align-items: center;
   justify-content: center;

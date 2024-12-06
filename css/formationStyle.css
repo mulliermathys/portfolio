@@ -1,0 +1,16 @@
+
+#formation {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: black;
+  color: white;
+  text-align: center;
+}
+
+#formation span {
+  user-select: none;
+  margin: 10vh 0;
+  font-size: clamp(2rem, 2rem + 4vw, 10rem);
+}

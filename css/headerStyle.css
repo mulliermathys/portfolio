@@ -202,7 +202,7 @@ header div#scrollButton {
   background-color: var(--second-color);
   margin-bottom: 2vh;
   border-radius: 5px;
-  animation: pulse 2s infinite;
+  animation: pulse 1.5s infinite;
 }
 
 header div#scrollButton img {
@@ -214,7 +214,7 @@ header div#scrollButton img {
     transform: translateY(0%);
   }
   25% {
-    transform: translateY(-20%);
+    transform: translateY(-25%);
   }
   50% {
     transform: translateY(0%);

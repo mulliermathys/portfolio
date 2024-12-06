@@ -21,13 +21,12 @@ main {
   height: 500vh;
 }
 
-section:not(#presentation) {
+section:not(#presentation):not(#formation) {
   height: 100vh;
 }
 
-#section-title-decoration {
-  width: 20%;
-  height: 0.6vh;
-  background-color: var(--primary-color);
-  margin: 2.5vh auto 6vw auto;
+section span {
+  font-family: "Molitor", sans-serif;
+  text-transform: uppercase;
+  font-weight: bold;
 }

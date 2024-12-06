@@ -83,7 +83,11 @@ async function switchLanguage(idxLang) {
  */
 
 document.querySelector('#scrollButton').addEventListener('click', function() {
-  document.querySelector('main').scrollIntoView();
+  const section = document.querySelector('main');
+  let sectionPosY = section.getBoundingClientRect().top;
+  sectionPosY -= navBar.clientHeight;
+  sectionPosY -= parseInt(window.getComputedStyle(navBar).top) * 2;
+  window.scrollBy({top: sectionPosY, behavior: "smooth"});
 });
 
 window.addEventListener('load', function() {
@@ -135,7 +139,7 @@ const sectionObserver = new IntersectionObserver ((entries) => {
     });
   },
   {
-    threshold: [0.5], // Déclenche quand la visibilité atteint 50%
+    threshold: [0.5],
   }
 );
 
@@ -153,7 +157,7 @@ const headerObserver = new IntersectionObserver ((entries) => {
     });
   },
   {
-    threshold: [0.5], // Déclenche quand la visibilité atteint 50%
+    threshold: [0.5],
   }
 );
 
