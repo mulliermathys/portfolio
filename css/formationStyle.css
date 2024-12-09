@@ -4,13 +4,50 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background: black;
+  background-color: var(--second-color);
   color: white;
   text-align: center;
+  border-top: black solid 2px;
+  border-bottom: black solid 2px;
 }
 
-#formation span {
+#formation .zone-formation {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 10vh;
+}
+
+#formation .zone-formation:nth-child(1) {
+  margin: 6vh 0 0 0;
+}
+
+#formation div span {
+  font-family: 'ATNameSansText', sans-serif;
+  text-transform: none;
+  font-size: clamp(1rem, 1rem + 4vw, 1.2rem);
+}
+
+#formation div span:first-child {
+  font-family: "Molitor", sans-serif;
   user-select: none;
-  margin: 10vh 0;
+  text-transform: uppercase;
   font-size: clamp(2rem, 2rem + 4vw, 10rem);
+  margin-bottom: 2vh;
+}
+
+#formation div span:nth-child(2) {
+  font-weight: bold;
+}
+
+#formation div span:last-child {
+  font-weight: normal;
+  margin-top: 2vh;
+}
+
+#formation .barre-formation {
+  width: 4px;
+  height: 8vh;
+  background-color: white;
+  margin: 4vh 0 1vh 0;
+  border-radius: 4px;
 }
