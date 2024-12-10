@@ -6,10 +6,6 @@
   flex-direction: column;
 }
 
-#experiences .section-title {
-  margin: 5vh 0;
-}
-
 #experiences .exp-carte {
   width: 60%;
   height: 70vh;
@@ -20,7 +16,7 @@
 }
 
 #experiences .exp-carte:last-child {
-  margin-bottom: 10vh;
+  margin-bottom: 0;
 }
 
 #experiences .exp-carte div.img {
