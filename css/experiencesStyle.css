@@ -1,0 +1,91 @@
+
+#experiences {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+#experiences .section-title {
+  margin: 5vh 0;
+}
+
+#experiences .exp-carte {
+  width: 60%;
+  height: 70vh;
+  --img-height: 70%;
+  margin-bottom: 5vh;
+  border-radius: 20px;
+  background: white;
+}
+
+#experiences .exp-carte:last-child {
+  margin-bottom: 10vh;
+}
+
+#experiences .exp-carte div.img {
+  width: 100%;
+  height:  var(--img-height);
+}
+
+#experiences .exp-carte div.img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 20px 20px 0 0;
+}
+
+#experiences .exp-carte .text {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  height: calc(100% - var(--img-height));
+  --date-height: 25%
+}
+
+#experiences .exp-carte .text div {
+  width: 100%;
+  height: calc(100% - var(--date-height));
+}
+
+#experiences .exp-carte .text div:last-child {
+  background-color: var(--second-color);
+  border-radius: 0 0 20px 20px;
+  height: var(--date-height);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-weight: bold;
+}
+
+#experiences .exp-carte .text div span:not(.job-title):not(.job-date) {
+  font-family: 'ATNameSansText', sans-serif;
+  text-transform: none;
+}
+
+#experiences .job-date {
+  font-family: 'ATNameSansText', sans-serif;
+  text-transform: uppercase;
+}
+
+#experiences .exp-carte .text div span:not(.job-date) {
+  display: block;
+  margin-left: 2%;
+}
+
+#experiences .exp-carte .text .job-title {
+  text-transform: uppercase;
+  font-weight: bold;
+  font-size: 2vw;
+  margin-top: 1vh;
+  margin-bottom: 1.5vh;
+}
+
+#experiences .exp-carte .text .job-entreprise {
+  margin-bottom: 1vh;
+  font-weight: bold;
+  color: var(--primary-color);
+}
+

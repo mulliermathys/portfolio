@@ -14,19 +14,23 @@ body {
   --nav-primary-color: #464953;
   --primary-color: #F96E46;
   --second-color: #95B2B8;
+  background-color: #F6F6F6;
 }
 
 main {
   width: 100%;
-  height: 500vh;
-}
-
-section:not(#presentation):not(#formation) {
-  height: 100vh;
 }
 
 section span {
   font-family: "Molitor", sans-serif;
-  text-transform: uppercase;
-  font-weight: bold;
 }
+
+.section-title {
+  display: block;
+  font-size: 3vw;
+  color: var(--primary-color);
+  text-align: center;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+

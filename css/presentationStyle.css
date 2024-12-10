@@ -5,11 +5,7 @@
 }
 
 #presentation span {
-  display: block;
   margin-bottom: 3vh;
-  font-size: 3vw;
-  color: var(--primary-color);
-  text-align: center;
 }
 
 #presentation .text-container {
