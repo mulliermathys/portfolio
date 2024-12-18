@@ -38,9 +38,3 @@ section span {
   margin: 5vh 0;
 }
 
-#coord {
-  width: 100%;
-  height: 40vh;
-  background-color: var(--second-color);
-}
-

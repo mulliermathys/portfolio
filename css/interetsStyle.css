@@ -25,8 +25,10 @@
 }
 
 #interets .text-zone p {
+  font-family: 'ATNameSansText', sans-serif;
   margin: 0 5vh 2vh 5vh;
   text-align: justify;
+  font-size: 1.2em;
 }
 
 #interets .text-zone span {

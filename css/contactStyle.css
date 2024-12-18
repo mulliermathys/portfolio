@@ -1,0 +1,13 @@
+
+#coord {
+  width: 100%;
+  background-color: var(--second-color);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+#coord .section-title {
+  color: white;
+}
